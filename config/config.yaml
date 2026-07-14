@@ -1,0 +1,28 @@
+data:
+  train_dir: "C:/Brast/archive/brats2020/BraTS2020_TrainingData"
+  val_dir: "C:/Brast/archive/brats2020/BraTS2020_ValidationData"
+  preprocessed_dir: "data/preprocessed"
+  train_split: "data/splits/train.txt"
+  val_split: "data/splits/val.txt"
+  test_split: "data/splits/test.txt"
+
+preprocessing:
+  target_shape: [128, 128, 128]
+  resample_spacing: [1.0, 1.0, 1.0]
+  normalize: true
+  use_bias_correction: true
+
+segmentation:
+  model_name: "unet"
+  num_classes: 4
+  batch_size: 1
+  epochs: 100
+  learning_rate: 0.0001
+  num_workers: 4
+
+classification:
+  model_name: "resnet18"
+  batch_size: 8
+  epochs: 50
+  learning_rate: 0.0001
+  num_workers: 4
