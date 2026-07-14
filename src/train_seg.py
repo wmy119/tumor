@@ -12,8 +12,6 @@ def main():
 
     train_dir = cfg["data"].get("train_dir", cfg["data"]["preprocessed_dir"])
     val_dir = cfg["data"].get("val_dir")
-    train_split = cfg["data"].get("train_split")
-    val_split = cfg["data"].get("val_split")
     target_shape = cfg["preprocessing"]["target_shape"]
 
     if not val_dir:
@@ -23,8 +21,8 @@ def main():
     if not os.path.exists(val_dir):
         raise FileNotFoundError(f"验证目录不存在: {val_dir}")
 
-    train_ds = BraTSSegmentationDataset(train_dir, train_split, target_shape=target_shape)
-    val_ds = BraTSSegmentationDataset(val_dir, val_split, target_shape=target_shape)
+    train_ds = BraTSSegmentationDataset(train_dir, target_shape=target_shape)
+    val_ds = BraTSSegmentationDataset(val_dir, target_shape=target_shape)
 
     train_loader = DataLoader(
         train_ds,

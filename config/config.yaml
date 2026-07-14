@@ -2,9 +2,6 @@ data:
   train_dir: "C:/Brast/archive/brats2020/BraTS2020_TrainingData"
   val_dir: "C:/Brast/archive/brats2020/BraTS2020_ValidationData"
   preprocessed_dir: "data/preprocessed"
-  train_split: "data/splits/train.txt"
-  val_split: "data/splits/val.txt"
-  test_split: "data/splits/test.txt"
 
 preprocessing:
   target_shape: [128, 128, 128]

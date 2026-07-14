@@ -10,9 +10,8 @@ def main():
         cfg = yaml.safe_load(f)
 
     data_dir = cfg["data"]["preprocessed_dir"]
-    train_split = cfg["data"]["train_split"]
 
-    train_ds = BraTSClassificationDataset(data_dir, train_split)
+    train_ds = BraTSClassificationDataset(data_dir)
     train_loader = DataLoader(train_ds, batch_size=cfg["classification"]["batch_size"], shuffle=True)
 
     model = ResNet3DClassifier(in_channels=4, num_classes=2)
